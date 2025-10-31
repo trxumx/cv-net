@@ -1,50 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Зибров Игорь — CV</title>
 
   <!-- Favicon -->
   <link rel="icon" href="./favicon.ico?v=3" sizes="any">
   <link rel="icon" type="image/png" href="./favicon.png?v=3">
-  <link rel="apple-touch-icon" href="./favicon.png?v=3">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Cache busting -->
+  <!-- Cache control -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --fg: #1b1d23;
+      --muted: #5b6275;
+      --head: #444;
+      --line: #e6e6e6;
+      --accent: #2e67ff;
+    }
+
     body {
-      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 0;
       background: #fff;
-      color: #222;
-      line-height: 1.6;
+      color: var(--fg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5pt;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 50px;
     }
 
     header {
       display: flex;
       align-items: center;
-      gap: 25px;
-      padding: 40px 60px 20px;
-      border-bottom: 1px solid #e0e0e0;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
     }
 
     .photo {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
+      background: #e0e3eb;
       overflow: hidden;
-      background: #f2f2f2;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 0 6px rgba(0,0,0,0.08);
     }
 
     .photo img {
@@ -54,103 +67,164 @@
       display: block;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0;
+    .info {
+      flex: 1;
+      min-width: 0;
     }
+
+    .name {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin: 0 0 6px 0;
+    }
+
+    .subtitle {
+      font-size: 12.5pt;
+      font-weight: 500;
+      color: var(--head);
+      margin: 0 0 10px 0;
+    }
+
+    .contacts, .contacts-second {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .contacts-second { margin-top: 4px; }
+
+    .contacts a, .contacts-second a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0,0,0,.25);
+    }
+
+    .sep { margin: 0 2px; }
 
     h2 {
-      font-size: 20px;
-      margin-top: 40px;
-      color: #111;
-      border-left: 5px solid #4a6cf7;
-      padding-left: 10px;
+      margin: 18px 0 10px;
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: var(--head);
     }
 
-    .contact {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 15px;
-      margin-top: 4px;
-    }
+    .block { margin-bottom: 16px; }
+    .rule { height: 1px; background: var(--line); margin: 16px 0; }
 
-    .contact a {
-      color: #444;
-      text-decoration: none;
-    }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 3px 0; }
 
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding: 30px 60px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    ul {
-      margin: 5px 0 15px 20px;
-    }
-
-    section {
-      margin-bottom: 30px;
-    }
+    p { margin: 0 0 5px 0; }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="photo">
-      <img src="./photo.jpg?v=3" alt="Зибров Игорь">
-    </div>
-    <div>
-      <h1>Зибров Игорь Алексеевич</h1>
-      <div class="contact">
-        <div>Москва, Россия · <a href="mailto:trxumxxx@gmail.com">trxumxxx@gmail.com</a></div>
-        <div>+7 (916) 309-46-20 · <a href="https://github.com/trxumx" target="_blank">github.com/trxumx</a></div>
+  <div class="page">
+    <header>
+      <div class="photo">
+        <img src="./photo.jpg?v=3" alt="Фото Игоря Зиброва" />
       </div>
-      <p style="margin-top:10px; font-weight:500; color:#666;">Студент 3 курса РТУ МИРЭА</p>
-    </div>
-  </header>
 
-  <main>
-    <section>
+      <div class="info">
+        <h1 class="name">Зибров Игорь Алексеевич</h1>
+        <p class="subtitle">Студент 3 курса РТУ МИРЭА</p>
+        <div class="contacts">
+          <div>Москва, Россия</div><span class="sep">·</span>
+          <div><a href="mailto:trxumxxx@gmail.com">trxumxxx@gmail.com</a></div>
+        </div>
+        <div class="contacts-second">
+          <div><a href="tel:+79163094620">+7 (916) 309-46-20</a></div><span class="sep">·</span>
+          <div><a href="https://github.com/trxumx" target="_blank">github.com/trxumx</a></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="rule"></div>
+
+    <section class="block">
       <h2>Обо мне</h2>
-      <p>Мотивированный студент-программист, увлечённый машинным обучением и искусственным интеллектом. Участвую в AI-хакатонах, развиваю собственные проекты на GitHub и стремлюсь применить знания на стажировке в крупной IT-компании.</p>
+      <p>Студент 3 курса РТУ МИРЭА, специализируюсь на интеллектуальных системах и машинном обучении. Создаю AI-прототипы, работаю с LLM и Python, участвую в хакатонах. Интересуюсь внедрением интеллектуальных решений в продукты и бэкенд-интеграциями.</p>
     </section>
 
-    <section>
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Цель</h2>
+      <p>Стажировка в области <b>ML / AI / Data Science / Backend</b>, где смогу применить знания анализа данных, построения моделей и разработки интеллектуальных систем.</p>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="block edu">
       <h2>Образование</h2>
-      <p><strong>РТУ МИРЭА</strong> — направление «09.03.04 Программная инженерия»<br>
-      Профиль: <em>Интеллектуальные системы поддержки принятия решений</em><br>
-      2023 – 2027 (бюджет, стипендия, планируется магистратура)</p>
+      <p><b>РТУ МИРЭА — Российский технологический университет</b></p>
+      <p>Бакалавриат, 09.03.04 «Программная инженерия» · 2023–2027 · Бюджет, успеваемость — «отлично»</p>
+      <p>Профиль: «Интеллектуальные системы поддержки принятия решений»</p>
     </section>
 
-    <section>
-      <h2>Навыки</h2>
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Проекты</h2>
       <ul>
-        <li><strong>Hard skills:</strong> Python, C++, Java, SQL, TypeScript, React, Git, Docker, PostgreSQL, Linux, PyTorch, TensorFlow, HuggingFace, Ollama, Prompt Engineering, теория вероятностей, теория больших чисел.</li>
-        <li><strong>Soft skills:</strong> командная работа, самообучаемость, креативность, аналитическое мышление, ответственность, целеустремлённость.</li>
+        <li><b>AI-инструменты на базе LLM</b> — Ollama, HuggingFace Transformers; прототипы AI-сервисов и интеграции моделей в продукты.</li>
+        <li><b>ML-модели и пайплайны данных</b> — классификация и регрессия, обучение, оценка метрик, визуализация результатов.</li>
+        <li><b>Веб-интерфейсы и API</b> — REST-сервисы на Flask и FastAPI; интерфейсы на React для демонстрации AI-функций.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Проекты и хакатоны</h2>
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Хакатоны</h2>
       <ul>
-        <li>AI-инструменты на базе LLM: разработка прототипов для автоматизации интеграции моделей.</li>
-        <li>ML-модели и пайплайны данных: классификация, регрессия, анализ метрик, настройка пайплайнов.</li>
-        <li>Участие в AI-хакатоне «Транснефть — Технологии» и других мероприятиях (сертификаты приложены).</li>
+        <li>Финалист AI-хакатона «Транснефть — Технологии» (2025)</li>
+        <li>Участник AI & Data Analysis Olympiad (HSE × Yandex)</li>
+        <li>Участник AI-хакатона МТС × МФТИ (MTS Hack)</li>
+        <li>Участник AI-хакатона «Atomic Hack 3.0»</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Дополнительно</h2>
-      <p>Русский — родной, английский — свободное владение.<br>
-      Активный участник кружка САО «Секция цифровой вычислительной техники и программных средств интеллектуальных систем».</p>
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Hard Skills</h2>
+      <ul>
+        <li><b>Языки программирования:</b> Python (advanced), C++, Java, JavaScript, TypeScript, SQL</li>
+        <li><b>ML / AI:</b> PyTorch, TensorFlow, scikit-learn, pandas, NumPy, HuggingFace, Ollama</li>
+        <li><b>AI Focus:</b> LLMs, Prompt Engineering, интеграция AI в продукты</li>
+        <li><b>Backend:</b> Flask, FastAPI, Django, PostgreSQL</li>
+        <li><b>Frontend:</b> HTML, CSS, JS, React</li>
+        <li><b>Инструменты:</b> Git, Docker, Linux CLI, PyCharm, Google Colab, VS Code</li>
+        <li><b>Математика:</b> линейная алгебра, теория вероятностей, теория больших чисел, оптимизация</li>
+      </ul>
     </section>
-  </main>
+
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Soft Skills</h2>
+      <ul>
+        <li>Ответственность, самообучаемость, системное мышление</li>
+        <li>Инициативность и лидерство</li>
+        <li>Умение доносить идеи и презентовать решения</li>
+        <li>Креативность и аналитический подход</li>
+        <li>Открытость к идеям и конструктивной критике</li>
+        <li>Доброжелательность и командность</li>
+        <li>Стремление к профессиональному развитию</li>
+        <li>Нацеленность на результат и готовность брать ответственность</li>
+      </ul>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="block">
+      <h2>Языки</h2>
+      <p><b>Русский</b> — родной · <b>Английский</b> — свободное владение</p>
+    </section>
+  </div>
 </body>
 </html>
