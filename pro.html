@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Зибров Игорь — CV</title>
+
+  <link rel="icon" href="./favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/png" href="./favicon.png?v=3">
+  <meta name="theme-color" content="#faf6ef">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f1ea;
+      --paper: #fdfbf6;
+      --fg: #1c1c1f;
+      --fg-soft: #2b2f36;
+      --muted: #6b6b75;
+      --muted-soft: #8a8a92;
+      --line: #e8e2d6;
+      --line-soft: #f0ebe1;
+      --accent: #2b2f36;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.58;
+      font-feature-settings: "kern", "ss01", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 36px 24px;
+    }
+
+    .cv {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 60px 68px 64px;
+      box-shadow:
+        0 1px 0 rgba(0,0,0,0.04),
+        0 20px 48px -20px rgba(70, 50, 20, 0.15);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    /* Decorative top hairline */
+    .cv::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 4px 4px 0 0;
+    }
+
+    p { margin: 0; text-wrap: pretty; }
+    h1, h2, h3 { text-wrap: balance; }
+
+    /* ===== Header ===== */
+    header.identity {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 38px;
+    }
+
+    .name {
+      font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+      font-optical-sizing: auto;
+      font-variation-settings: "opsz" 96;
+      font-size: 30pt;
+      font-weight: 500;
+      letter-spacing: -0.6px;
+      line-height: 1.05;
+      margin: 0 0 6px;
+      color: var(--fg);
+    }
+
+    .tagline {
+      font-size: 10.5pt;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin: 0 0 14px;
+      text-transform: none;
+    }
+    .tagline .role {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      font-size: 9.5pt;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .contacts a {
+      color: var(--fg-soft);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.18);
+      padding-bottom: 1px;
+      transition: border-color .15s;
+    }
+    .contacts a:hover { border-color: var(--accent); }
+    .contacts .dot {
+      color: var(--muted-soft);
+      margin: 0 -4px;
+    }
+
+    .photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e8e3da;
+      box-shadow:
+        0 0 0 1px var(--line),
+        0 8px 22px -10px rgba(70, 50, 20, 0.22);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== Section headings ===== */
+    section { margin-bottom: 28px; }
+    section:last-child { margin-bottom: 0; }
+
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-optical-sizing: auto;
+      font-variation-settings: "opsz" 24;
+      font-size: 13.5pt;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: var(--fg);
+      margin: 0 0 14px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    h2 .h2-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      color: var(--muted-soft);
+      text-transform: uppercase;
+    }
+
+    /* ===== About ===== */
+    .lead {
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: var(--fg);
+      max-width: 640px;
+    }
+
+    /* ===== Education ===== */
+    .edu-item, .project-item { margin-bottom: 14px; }
+    .edu-item:last-child, .project-item:last-child { margin-bottom: 0; }
+
+    .item-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 2px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .item-title .meta-inline {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 9.5pt;
+    }
+    .item-meta {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin: 0 0 4px;
+    }
+    .item-desc {
+      font-size: 10pt;
+      line-height: 1.6;
+      color: var(--fg-soft);
+      margin: 0 0 4px;
+    }
+
+    /* ===== Projects ===== */
+    .project-item .item-title { gap: 12px; }
+    .project-item .item-title .badge {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 2px 7px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--paper);
+      line-height: 1.2;
+      position: relative;
+      top: -1px;
+    }
+    .project-item .item-title .badge.prize {
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .stack {
+      font-size: 9pt;
+      color: var(--muted);
+      letter-spacing: 0.1px;
+      margin-top: 4px;
+      font-family: 'Inter', sans-serif;
+    }
+    .stack-label {
+      color: var(--fg);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    /* ===== Skills ===== */
+    .skills {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 9px 22px;
+      margin: 0;
+    }
+    .skills dt {
+      font-weight: 600;
+      font-size: 9.5pt;
+      color: var(--fg);
+      padding-top: 1px;
+      letter-spacing: 0.1px;
+    }
+    .skills dd {
+      margin: 0;
+      font-size: 10pt;
+      color: var(--fg-soft);
+      line-height: 1.55;
+    }
+
+    /* ===== Soft skills ===== */
+    .soft-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 28px;
+    }
+    .soft-list li {
+      font-size: 10pt;
+      color: var(--fg-soft);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .soft-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 6px;
+      height: 1.5px;
+      background: var(--muted-soft);
+    }
+
+    /* ===== Languages ===== */
+    .languages-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 10pt;
+    }
+    .lang-item b {
+      color: var(--fg);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .lang-item .lang-level {
+      color: var(--muted);
+    }
+
+    /* ===== Print ===== */
+    @media print {
+      body { background: white; padding: 0; }
+      .cv {
+        box-shadow: none;
+        padding: 28px 36px;
+        max-width: 100%;
+        border-radius: 0;
+        background: white;
+      }
+      .cv::before { display: none; }
+      section { page-break-inside: avoid; }
+      .project-item, .edu-item, dt, dd, li { page-break-inside: avoid; }
+      a { color: var(--fg); border-bottom: none; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 8px; }
+      .cv { padding: 32px 24px; }
+      header.identity { grid-template-columns: 1fr; gap: 20px; }
+      .photo { width: 80px; height: 80px; }
+      .name { font-size: 24pt; }
+      .skills { grid-template-columns: 1fr; gap: 2px 0; }
+      .skills dt { padding-top: 8px; }
+      .soft-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <article class="cv">
+
+    <header class="identity">
+      <div class="info">
+        <h1 class="name">Зибров Игорь Алексеевич</h1>
+        <p class="tagline"><span class="role">ML / AI Engineer</span> · Студент 3&nbsp;курса РТУ&nbsp;МИРЭА</p>
+        <div class="contacts">
+          <span>Москва, Россия</span>
+          <span class="dot">·</span>
+          <a href="mailto:trxumxxx@gmail.com">trxumxxx@gmail.com</a>
+          <span class="dot">·</span>
+          <a href="tel:+79163094620">+7&nbsp;916&nbsp;309-46-20</a>
+          <span class="dot">·</span>
+          <a href="https://t.me/trxumx" target="_blank">tg: @trxumx</a>
+          <span class="dot">·</span>
+          <a href="https://github.com/trxumx" target="_blank">github.com/trxumx</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="./photo.jpg?v=3" alt="Фото Игоря Зиброва" />
+      </div>
+    </header>
+
+    <section>
+      <h2>Обо мне</h2>
+      <p class="lead">Студент 3&nbsp;курса РТУ&nbsp;МИРЭА, профиль «Интеллектуальные системы поддержки принятия решений». Занимаюсь практическим ML/AI: LLM, RAG, диффузионные модели (Stable Diffusion, LoRA, ControlNet), бэкенд для AI-продуктов на Python. Прохожу полный цикл — от data&nbsp;pipeline и обучения до интеграции и деплоя. Активно участвую в ML/AI-хакатонах и олимпиадах. Ищу позицию ML/AI-инженера в команде, где можно расти на сложных задачах.</p>
+    </section>
+
+    <section>
+      <h2>Образование</h2>
+
+      <div class="edu-item">
+        <p class="item-title">РТУ МИРЭА — Российский технологический университет</p>
+        <p class="item-meta">Бакалавриат · 09.03.04 «Программная инженерия» · 2023–2027 · бюджет, успеваемость «отлично»</p>
+        <p class="item-desc">Профиль: «Интеллектуальные системы поддержки принятия решений».</p>
+      </div>
+
+      <div class="edu-item">
+        <p class="item-title">Школа программистов (АНО&nbsp;ДО) — онлайн</p>
+        <p class="item-meta">2018–2022 · 4-летний курс</p>
+        <p class="item-desc">Python, C++, алгоритмика, дискретная математика, форматы данных, ОС, сети, промышленное программирование.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Проекты</h2>
+
+      <div class="project-item">
+        <p class="item-title">
+          text-image-synthesis
+          <span class="badge">курсовая</span>
+        </p>
+        <p class="item-meta">«Проектирование и обучение нейронных сетей» · 2025</p>
+        <p class="item-desc">End-to-end пайплайн генерации изображений с точным посимвольным рендерингом заданного слова. Провёл серию LoRA-экспериментов над Stable&nbsp;Diffusion&nbsp;1.5, выявил архитектурный лимит CLIP-токенизатора; финальное решение построил на связке ControlNet&nbsp;(Canny&nbsp;edges) + PIL — 100% точность букв на тестовом наборе.</p>
+        <p class="stack"><span class="stack-label">Стек:</span>PyTorch · HuggingFace Diffusers · OpenCV · device-agnostic&nbsp;CUDA&nbsp;/&nbsp;MPS&nbsp;/&nbsp;CPU</p>
+      </div>
+
+      <div class="project-item">
+        <p class="item-title">
+          RAG-система для техдокументации
+          <span class="badge prize">Хакатон «Транснефти» · призовое место</span>
+        </p>
+        <p class="item-desc">Разработал масштабируемую вопросно-ответную систему на FastAPI с использованием LLM&nbsp;Gemma, эмбеддингов Qwen и механизмов реранкинга.</p>
+        <p class="stack"><span class="stack-label">Стек:</span>FastAPI · LLM Gemma · Qwen embeddings · реранкинг</p>
+      </div>
+
+      <div class="project-item">
+        <p class="item-title">
+          AI&nbsp;JSON Schema Generator
+          <span class="badge">Хакатон МТС</span>
+        </p>
+        <p class="item-desc">Backend-сервис на Flask и Google Gemini для генерации JSON-схем; реализовал взаимодействие через WebSocket и интеграцию с PostgreSQL.</p>
+        <p class="stack"><span class="stack-label">Стек:</span>Flask · Google Gemini · WebSocket · PostgreSQL</p>
+      </div>
+
+      <div class="project-item">
+        <p class="item-title">NLP — классификация отзывов на приложения</p>
+        <p class="item-desc">Спроектировал и обучил модель для автоматической классификации отзывов; пайплайн предобработки текста для повышения точности анализа обратной связи.</p>
+      </div>
+
+      <div class="project-item">
+        <p class="item-title">
+          Оптимизация городского трафика
+          <span class="badge">Хакатон «Росатома»</span>
+        </p>
+        <p class="item-desc">Алгоритм оптимизации трафика на основе анализа графовых структур; применил метод квантового отжига и его математическую имитацию.</p>
+      </div>
+
+      <div class="project-item">
+        <p class="item-title">
+          Декодирование LDPC-кодов
+          <span class="badge">Олимпиада AIDAO</span>
+        </p>
+        <p class="item-desc">Исследовал и реализовал подходы классификации и регрессии для решения сложной задачи, связанной с декодированием LDPC-кодов.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hard Skills</h2>
+      <dl class="skills">
+        <dt>Языки</dt>
+        <dd>Python&nbsp;(advanced) · C++&nbsp;(medium) · TypeScript&nbsp;/&nbsp;JavaScript&nbsp;(medium) · SQL&nbsp;(basic)</dd>
+
+        <dt>ML / DL</dt>
+        <dd>PyTorch, TensorFlow, scikit-learn, HuggingFace (Transformers, Diffusers), pandas, NumPy, Ollama, LangChain</dd>
+
+        <dt>AI focus</dt>
+        <dd>LLMs (Gemma, Gemini, Qwen), RAG, prompt engineering, эмбеддинги, реранкинг · Diffusion — Stable&nbsp;Diffusion&nbsp;1.5, LoRA, ControlNet</dd>
+
+        <dt>Backend</dt>
+        <dd>FastAPI, Flask, Django, WebSockets, PostgreSQL</dd>
+
+        <dt>Frontend</dt>
+        <dd>React, TypeScript, Vite, HTML, CSS, vanilla&nbsp;JS</dd>
+
+        <dt>Инструменты</dt>
+        <dd>Git, Docker, NGINX, Linux&nbsp;CLI, Vercel, GitHub&nbsp;Pages · device-agnostic&nbsp;CUDA&nbsp;/&nbsp;MPS&nbsp;/&nbsp;CPU</dd>
+
+        <dt>Математика</dt>
+        <dd>линейная алгебра, теория вероятностей, статистика, дискретная математика, оптимизация</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Soft Skills</h2>
+      <ul class="soft-list">
+        <li>Самообучаемость и системное мышление</li>
+        <li>Креативность и аналитический подход</li>
+        <li>Умение доносить идеи и презентовать решения</li>
+        <li>Открытость к идеям и конструктивной критике</li>
+        <li>Умение находить решения в условиях неопределённости</li>
+        <li>Стремление к профессиональному развитию</li>
+        <li>Нацеленность на результат и ответственность</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Языки</h2>
+      <div class="languages-row">
+        <div class="lang-item"><b>Русский</b><span class="lang-level">— родной</span></div>
+        <div class="lang-item"><b>Английский</b><span class="lang-level">— C1 (free fluency)</span></div>
+      </div>
+    </section>
+
+  </article>
+</body>
+</html>
