@@ -130,12 +130,29 @@
     p { margin: 0 0 5px 0; }
 
     @media print {
-      body { font-size: 10.5pt; line-height: 1.38; }
-      .page { max-width: 100%; padding: 24px 32px; }
-      .block, section, ul { page-break-inside: avoid; }
-      li { page-break-inside: avoid; }
+      @page { size: A4; margin: 10mm 12mm; }
+      html, body { background: white; }
+      body { font-size: 9.5pt; line-height: 1.32; }
+      .page { max-width: 100%; padding: 0; margin: 0; }
+
+      header { gap: 14px; margin-bottom: 10px; }
+      .photo { width: 78px; height: 78px; box-shadow: 0 0 0 1.5px var(--accent); }
+      .name { font-size: 21pt; margin: 0 0 4px; }
+      .contacts, .contacts-second { font-size: 8.5pt; gap: 12px; }
+      .contacts-second { margin-top: 2px; }
+
+      h2 {
+        margin: 8px 0 4px;
+        font-size: 10.5pt;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .block { margin-bottom: 4px; }
+      .rule { margin: 6px 0; }
+      ul { padding-left: 16px; }
+      li { margin: 2px 0; page-break-inside: avoid; }
+      p { margin: 0 0 2px; }
       a { color: inherit; }
-      .photo { box-shadow: 0 0 0 1.5px var(--accent); }
     }
   </style>
 </head>
