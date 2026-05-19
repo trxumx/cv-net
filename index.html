@@ -158,13 +158,6 @@
       li { margin: 2px 0; page-break-inside: avoid; }
       p { margin: 0 0 2px; }
       a { color: inherit; }
-
-      /* Force Hard Skills onto a new page; hide the dangling separator before it */
-      .page-break-here {
-        break-before: page;
-        page-break-before: always;
-      }
-      .rule:has(+ .page-break-here) { display: none; }
     }
   </style>
 </head>
@@ -225,7 +218,7 @@
 
     <div class="rule"></div>
 
-    <section class="block page-break-here">
+    <section class="block">
       <h2>Hard Skills</h2>
       <ul>
         <li><b>Языки программирования:</b> Python&nbsp;(advanced) · C++&nbsp;(medium) · TypeScript&nbsp;/&nbsp;JavaScript&nbsp;(medium) · SQL&nbsp;(basic)</li>
