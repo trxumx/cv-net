@@ -24,7 +24,7 @@
       --muted: #5b6275;
       --head: #444;
       --line: #e6e6e6;
-      --accent: #2e67ff;
+      --accent: #2b2f36;
     }
 
     body {
@@ -34,7 +34,12 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11.5pt;
       line-height: 1.45;
+      hyphens: none;
+      -webkit-hyphens: none;
     }
+
+    p, li { text-wrap: pretty; }
+    h1, h2 { text-wrap: balance; }
 
     .page {
       max-width: 900px;
@@ -180,7 +185,7 @@
     <section class="block">
       <h2>Проекты</h2>
       <ul>
-        <li><b>text-image-synthesis (курсовая «Проектирование и обучение нейронных сетей»):</b> Разработал end-to-end пайплайн генерации изображений с точным посимвольным рендерингом заданного слова. Провёл серию LoRA-экспериментов над Stable Diffusion 1.5, выявил архитектурный лимит CLIP-токенизатора; финальное решение построил на связке ControlNet (Canny edges) + PIL — 100% точность букв на тестовом наборе. Стек: PyTorch, HuggingFace Diffusers, OpenCV; код device-agnostic (CUDA / MPS / CPU).</li>
+        <li><b>text-image-synthesis (курсовая «Проектирование и обучение нейронных сетей»):</b> Разработал end-to-end пайплайн генерации изображений с точным посимвольным рендерингом заданного слова. Провёл серию LoRA-экспериментов над Stable Diffusion 1.5, выявил архитектурный лимит CLIP-токенизатора; финальное решение построил на связке ControlNet (Canny edges) + PIL — 100% точность букв на тестовом наборе. Стек: PyTorch, HuggingFace Diffusers, OpenCV; код device-agnostic&nbsp;(CUDA&nbsp;/&nbsp;MPS&nbsp;/&nbsp;CPU).</li>
         <li><b>RAG-система для техдокументации (Хакатон «Транснефти», призовое место):</b> Разработал масштабируемую вопросно-ответную систему на FastAPI с использованием LLM Gemma, эмбеддингов Qwen и механизмов реранкинга.</li>
         <li><b>AI JSON Schema Generator (Хакатон МТС):</b> Разработал backend-сервис на Flask и Google Gemini для генерации JSON-схем, реализовав взаимодействие через WebSocket и интеграцию с PostgreSQL.</li>
         <li><b>NLP для классификации отзывов на приложения:</b> Спроектировал и обучил модель для автоматической классификации отзывов, реализовав пайплайн предобработки текста для повышения точности анализа обратной связи.</li>
@@ -194,12 +199,12 @@
     <section class="block">
       <h2>Hard Skills</h2>
       <ul>
-        <li><b>Языки программирования:</b> Python (advanced) · C++ (medium) · TypeScript / JavaScript (medium) · SQL (basic)</li>
+        <li><b>Языки программирования:</b> Python&nbsp;(advanced) · C++&nbsp;(medium) · TypeScript&nbsp;/&nbsp;JavaScript&nbsp;(medium) · SQL&nbsp;(basic)</li>
         <li><b>ML / DL:</b> PyTorch, TensorFlow, scikit-learn, HuggingFace (Transformers, Diffusers), pandas, NumPy, Ollama, LangChain</li>
         <li><b>AI Focus:</b> LLMs (Gemma, Gemini, Qwen), RAG, prompt engineering, эмбеддинги, реранкинг; Diffusion — Stable Diffusion 1.5, LoRA, ControlNet</li>
         <li><b>Backend:</b> FastAPI, Flask, Django, WebSockets, PostgreSQL</li>
         <li><b>Frontend:</b> React, TypeScript, Vite, HTML, CSS, vanilla JS</li>
-        <li><b>Инструменты:</b> Git, Docker, NGINX, Linux CLI, Vercel, GitHub Pages; device-agnostic код для CUDA / MPS / CPU</li>
+        <li><b>Инструменты:</b> Git, Docker, NGINX, Linux CLI, Vercel, GitHub Pages; device-agnostic код для CUDA&nbsp;/&nbsp;MPS&nbsp;/&nbsp;CPU</li>
         <li><b>Математика:</b> линейная алгебра, теория вероятностей, статистика, дискретная математика, оптимизация</li>
       </ul>
     </section>
