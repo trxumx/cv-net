@@ -57,7 +57,7 @@
       background: #e0e3eb;
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 0 6px rgba(0,0,0,0.08);
+      box-shadow: 0 0 0 2px var(--accent), 0 0 8px rgba(0,0,0,0.08);
     }
 
     .photo img {
@@ -102,6 +102,17 @@
       font-size: 13.5pt;
       font-weight: 700;
       color: var(--head);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .block { margin-bottom: 16px; }
@@ -109,8 +120,18 @@
 
     ul { margin: 0; padding-left: 18px; }
     li { margin: 6px 0; }
+    li::marker { color: var(--accent); }
 
     p { margin: 0 0 5px 0; }
+
+    @media print {
+      body { font-size: 10.5pt; line-height: 1.38; }
+      .page { max-width: 100%; padding: 24px 32px; }
+      .block, section, ul { page-break-inside: avoid; }
+      li { page-break-inside: avoid; }
+      a { color: inherit; }
+      .photo { box-shadow: 0 0 0 1.5px var(--accent); }
+    }
   </style>
 </head>
 
